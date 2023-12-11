@@ -1,2 +1,3 @@
-# JavaFX-Point-of-Sales
-Point of Sales with inventory management system 
+# Business ERP System.
+Our Business ERP system is designed to efficiently manage various internal processes, including inventory, accounting, sales, marketing, and more. This desktop-based system supports a distributed channel, making it ideal for multi-entity businesses by seamlessly handling diverse operations in a unified manner.
+The technology stack for our system includes JavaFX for the user interface and Spring Boot with Hibernate, JPA, and Maven for the back-end. The application is compatible with all relational database management systems (RDBMS) , multi language and follows a monolithic architecture to ensure robust functionality.
