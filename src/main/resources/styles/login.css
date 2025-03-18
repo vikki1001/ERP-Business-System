@@ -1,4 +1,5 @@
-
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*/
 .minus-button {
     -fx-background-image: url("../images/minus.png");
 }
@@ -11,7 +12,7 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: 75%;
     -fx-background-position: center center;
-    -fx-background-color: rgba(0, 88, 122, 1);
+    -fx-background-color: #666;
 }
 
 .close-button:hover {
@@ -23,40 +24,50 @@
 }
 
 .left-box{
-    -fx-background-color: rgba(0, 136, 145, 1);
+    -fx-background-color: #fff;
+     -fx-border-color: #666;
+    -fx-border-width: 5 ; 
+    -fx-border-style: solid(10, 15, 15, 15);
+    
 }
 
 .right-box{
-    -fx-background-color: rgba(0, 88, 122, 1);
+    -fx-background-color: #666;
 }
 
 .tagline{
-    -fx-font-family: Century Gothic;
-    -fx-text-fill: #ffffff;
+	  -fx-font-family:Poppins;
+    -fx-text-fill: #666;
     -fx-font-size: 18px;
+   
+    
 }
 
 .sign-in{
-    -fx-font-family: Century Gothic;
+    -fx-font-family:Poppins;
     -fx-text-fill: rgba(231,231,222,1);
     -fx-font-size: 18;
 }
 
 .error-message {
-    -fx-font-family: Century Gothic;
-    -fx-text-fill: #ff3333;
+    -fx-font-family:Poppins;
+    -fx-text-fill: #e8465a;
     -fx-font-size: 18;
+    -fx-font-weight:800
 }
 
 .text-field {
-    -fx-font-family: Consolas;
+   -fx-font-family:Poppins;
     -fx-text-fill: #ffffff;
     -fx-font-size: 18;
-    -fx-background-color: rgba(0, 88, 122, 1);
+    -fx-background-color: #666;
 }
 
 .buttons {
-    -fx-text-fill: #000000;
-    -fx-font-family: Verdana;
-    -fx-background-color: rgb(205,203,166);
+    -fx-text-fill: #fff;
+   -fx-font-family:Poppins;
+    -fx-background-color: #3dabae;
+}
+.size_{
+	 -fx-font-size: 10;
 }

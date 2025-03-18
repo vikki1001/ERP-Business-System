@@ -1,175 +1,482 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="580.0" prefWidth="760.0" stylesheets="@../styles/admin.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ksv.inventory.controller.admin.AdminController">
-   <children>
-      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="760.0" styleClass="hbox-top-background">
-         <children>
-            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="200.0" styleClass="logo-background">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../styles/admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="760.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #ddd;" styleClass="hbox-top-background">
+			<children>
+            <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="170.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;">
                <children>
-                  <ImageView fitHeight="56.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/logo.png" />
-                     </image>
-                  </ImageView>
+						<ImageView fitHeight="52.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@../images/logo.png" />
+							</image>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+						</ImageView>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="560.0" spacing="5.0" styleClass="control-background" HBox.hgrow="ALWAYS">
-               <children>
-                  <Pane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="560.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Button fx:id="menu" layoutX="14.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="hamburger-button" />
-                        <Button layoutX="52.0" layoutY="18.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="30.0" prefWidth="30.0" styleClass="logout-button" />
-                     </children>
-                  </Pane>
-               </children>
-            </HBox>
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </HBox>
-      <StackPane alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0" VBox.vgrow="ALWAYS">
-         <children>
-            <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0">
-               <children>
-                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="760.0" styleClass="vbox-panel" HBox.hgrow="ALWAYS">
-                     <children>
-                        <HBox maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="740.0" styleClass="hbox-header" VBox.vgrow="NEVER">
+				<HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="1056.0" spacing="5.0" styleClass="control-background" HBox.hgrow="ALWAYS">
+					<children>
+						<Pane maxHeight="-Infinity" prefHeight="65.0" style="-fx-background-color: #fff;" HBox.hgrow="ALWAYS">
+							<children>
+      								<Button fx:id="menu" layoutX="11.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="hamburger-button" />
+                        <HBox alignment="CENTER_LEFT" layoutX="64.0" layoutY="13.0" prefHeight="42.0" prefWidth="139.0">
                            <children>
-                              <Pane minWidth="-Infinity" prefHeight="200.0" prefWidth="760.0" HBox.hgrow="ALWAYS">
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+            								<ComboBox fx:id="companyBox" prefHeight="30.0" prefWidth="139.0" promptText="Select" styleClass="select-erp" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="207.0" layoutY="19.0" prefHeight="30.0" prefWidth="200.0">
+                           <children>
+                        								<Label fx:id="finanicalLabel" alignment="CENTER" contentDisplay="TOP" prefHeight="25.0" prefWidth="207.0" text="1 April, 2023 To 31 March, 2024" textFill="#8d8d8d" wrapText="true">
+                        									<font>
+                        										<Font name="Poppins Bold" size="12.0" />
+                        									</font>
+                        								</Label>
+                           </children>
+                        </HBox>
+
+							</children>
+						</Pane>
+						<Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="65.0" prefWidth="422.0" HBox.hgrow="NEVER">
+							<children>
+      										<Button fx:id="CustomerBtn" layoutX="41.0" layoutY="18.0" mnemonicParsing="false" onAction="#customerAction" prefHeight="30.0" prefWidth="119.0" style="-fx-background-color: #666666;" styleClass="add-button" text="ADD CUSTOMER" textFill="WHITE" wrapText="true">
+      											<font>
+      												<Font name="Poppins Bold" size="12.0" />
+      											</font>
+      										</Button>
+      								<Button fx:id="logoutBtn" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="314.0" layoutY="18.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #3AADAF;" styleClass="logout-button" text="LOGOUT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="billingBtn1" layoutX="172.0" layoutY="18.0" mnemonicParsing="false" onAction="#billingAction" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #666666;" styleClass="add-button" text="BILLING" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                           <!-- <accelerator>
+        						<KeyCodeCombination code="B" control="true"/>
+    						</accelerator> -->
+                        </Button>
+                        <Button fx:id="addBtn" layoutX="259.0" layoutY="18.0" mnemonicParsing="false" onAction="#BankAction" prefHeight="30.0" prefWidth="45.0" style="-fx-background-color: #666666;" styleClass="add-button" text="ADD" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Button>
+							</children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+						</Pane>
+					</children>
+				</HBox>
+			</children>
+			<VBox.margin>
+				<Insets />
+			</VBox.margin>
+		</HBox>
+      <HBox prefHeight="0.0" prefWidth="1920.0" />
+		<StackPane alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0" VBox.vgrow="ALWAYS">
+			<children>
+				<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0">
+					<children>
+						<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="760.0" styleClass="vbox-panel" HBox.hgrow="ALWAYS">
+							<children>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="740.0" styleClass="hbox-header">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="850.0">
                                  <children>
-                                    <Label layoutX="14.0" layoutY="12.0" styleClass="hbox-title" text="Admin" />
+                                    <Label fx:id="menulbl" text="ERP - Adminstrator">
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Poppins Regular" size="12.0" />
+                                       </font>
+                                    </Label>
                                  </children>
-                              </Pane>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="850.0">
+                                 <children>
+                                    <Label fx:id="LDatelbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="190.0" text="License Expires on 00-00-0000" textFill="#1b0c0c">
+                                       <font>
+                                          <Font name="Poppins Regular" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="daysLabel" prefHeight="17.0" prefWidth="80.0" text="00 days left" textFill="#1b0c0c">
+                                       <font>
+                                          <Font name="Poppins Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="25.0" right="25.0" />
+                                 </HBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="850.0">
+                                 <children>
+                                    <Label fx:id="dateLabel" alignment="CENTER" prefHeight="20.0" prefWidth="78.0" text="11/30/2023,">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Poppins Regular" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="timeLabel" alignment="CENTER" prefHeight="20.0" prefWidth="66.0" text="10 : 45 :12">
+                                       <font>
+                                          <Font name="Poppins Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
-                        <LineChart fx:id="invoiceChart" minHeight="-Infinity" minWidth="-Infinity" prefHeight="233.0" prefWidth="760.0" title="Sales Report" VBox.vgrow="ALWAYS">
-                          <xAxis>
-                            <CategoryAxis fx:id="ixAxis" side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis fx:id="syAxis" label="Revenue" side="LEFT" />
-                          </yAxis>
-                        </LineChart>
-                        <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="232.0" prefWidth="760.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="CENTER" prefHeight="459.0" prefWidth="1920.0">
                            <children>
-                              <PieChart fx:id="stockChart" minHeight="-Infinity" minWidth="-Infinity" prefHeight="232.0" prefWidth="380.0" title="Stock" HBox.hgrow="ALWAYS" />
-                              <BarChart fx:id="productsChart" minHeight="-Infinity" minWidth="-Infinity" prefHeight="232.0" prefWidth="380.0" title="Products" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
-                                <xAxis>
-                                  <CategoryAxis fx:id="pxAxis" side="BOTTOM" />
-                                </xAxis>
-                                <yAxis>
-                                  <NumberAxis fx:id="pyAxis" side="LEFT" />
-                                </yAxis>
-                              </BarChart>
+                              <VBox prefHeight="294.0" prefWidth="1920.0" style="-fx-background-color: #fff;">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd; -fx-background-color: #fff;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="customerCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Customer">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                 <Hyperlink fx:id="customerField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#customerAction2" prefHeight="40.0" prefWidth="487.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink> 
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="staffCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Staff">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="staffField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#staffAction1" prefHeight="40.0" prefWidth="498.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="productCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Product">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="productField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#productAction1" prefHeight="40.0" prefWidth="483.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd;">
+                                             <children>
+                                                <Label fx:id="supplierCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Supplier">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="supplierField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#supplierAction1" prefHeight="40.0" prefWidth="499.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd; -fx-background-color: #fff;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="interestedCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Interested">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="interestedField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#quotationAction1" prefHeight="40.0" prefWidth="509.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="salesCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Sales">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="saleField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#salesAction1" prefHeight="40.0" prefWidth="504.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="purchasesCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Purchases">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="purchaseField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#purchaseAction1" prefHeight="40.0" prefWidth="507.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd;">
+                                             <children>
+                                                <Label fx:id="expensesCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Expenses">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="expenseField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#expenseAction1" prefHeight="40.0" prefWidth="507.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #fff;">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd; -fx-background-color: #fff;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="customerDueCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Customer Due">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="customerDueField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#customerDueAction1" prefHeight="40.0" prefWidth="520.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0" style="-fx-border-color: #ddd;">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                             <children>
+                                                <Label fx:id="supplierDueCountlbl" alignment="CENTER" prefHeight="30.0" prefWidth="595.0" text="Supplier Due">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Hyperlink fx:id="supplierDueField" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#supplierDueAction1" prefHeight="40.0" prefWidth="472.0" style="-fx-border-width: 0px 1px 0px 0px;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                   <font>
+                                                      <Font name="System Bold" size="22.0" />
+                                                   </font>
+                                                </Hyperlink>
+                                             </children>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="460.0">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <VBox fx:id="drawer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="200.0" styleClass="sidebar-menu" translateX="-200.0">
-               <children>
-                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="200.0" styleClass="pane-user">
-                     <children>
-                        <ImageView fitHeight="101.0" fitWidth="103.0" layoutX="48.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" styleClass="pane-user-pic">
-                           <image>
-                              <Image url="@../images/user.png" />
-                           </image>
-                        </ImageView>
-                        <Label fx:id="userLabel" layoutX="56.0" layoutY="121.0" styleClass="pane-user-text" text="Bond, James" />
-                     </children>
-                  </Pane>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Administrator">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/admin.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <styleClass>
-                        <String fx:value="menu-buttons" />
-                        <String fx:value="menu-buttons-selected" />
-                     </styleClass>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#productAction" prefHeight="40.0" prefWidth="200.0" styleClass="menu-buttons" text="Product">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/product.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#categoryAction" prefHeight="40.0" prefWidth="200.0" styleClass="menu-buttons" text="Category">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/category.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#supplierAction" prefHeight="40.0" prefWidth="200.0" styleClass="menu-buttons" text="Supplier">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/supplier.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#purchaseAction" prefHeight="40.0" prefWidth="200.0" styleClass="menu-buttons" text="Purchase">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/purchase.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#salesAction" prefHeight="40.0" prefWidth="200.0" styleClass="menu-buttons" text="Sales">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/sale.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#staffAction" prefHeight="40.0" prefWidth="200.0" styleClass="menu-buttons" text="Staff">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/employee.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#reportAction" prefHeight="40.0" prefWidth="200.0" styleClass="menu-buttons" text="Report">
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/invoice.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </VBox>
-         </children>
-      </StackPane>
-   </children>
+								<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="1263.0" VBox.vgrow="ALWAYS">
+									<children>
+										<PieChart fx:id="stockChart" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="0.0" style="-fx-background-color: #fff; -fx-font-family: Poppins; -fx-font-size: 8px;" title="Stock" HBox.hgrow="ALWAYS" />
+										<BarChart fx:id="productsChart" prefHeight="300.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-font-family: Poppins; -fx-font-size: 8px;" title="Products" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+											<xAxis>
+												<CategoryAxis fx:id="pxAxis" side="BOTTOM" />
+											</xAxis>
+											<yAxis>
+												<NumberAxis fx:id="pyAxis" side="LEFT" />
+											</yAxis>
+										</BarChart>
+									</children>
+								</HBox>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="740.0" spacing="10.0" style="-fx-background-color: #f2f2f2;">
+                           <children>
+                              <Label>
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <graphic>
+                                    <Hyperlink fx:id="hyper" onAction="#hyperAction" text="KSVSoftTech">
+                                       <graphic>
+                                          <Label text="All Rights Reserved. © 2023 Design &amp; Developed By" />
+                                       </graphic>
+                                    </Hyperlink>
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </HBox>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+				<VBox fx:id="drawer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="220.0" styleClass="sidebar-menu" translateX="-220.0">
+					<children>
+      						<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="139.0" prefWidth="220.0" styleClass="pane-user">
+      							<children>
+      								<ImageView fitHeight="60.0" fitWidth="60.0" layoutX="80.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" styleClass="pane-user-pic">
+      									<image>
+      										<Image url="@../images/user.png" />
+      									</image>
+      								</ImageView>
+      								<Label fx:id="userLabel" layoutX="87.0" layoutY="92.0" styleClass="pane-user-text" text="ADMIN" />
+      							</children>
+      						</Pane>
+      						<!-- <ScrollPane prefHeight="500.0" styleClass="Scroll-pane"> <content> -->
+      						<VBox prefHeight="648.0" prefWidth="210.0">
+      							<children>
+      								<Button fx:id="adminBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="54.0" prefWidth="218.0" text="     ADMINISTRATOR">
+      									<graphic>
+      										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+      											<image>
+      												<Image url="@../images/admin.png" />
+      											</image>
+      										</ImageView>
+      									</graphic>
+      									<styleClass>
+      										<String fx:value="menu-buttons" />
+      										<String fx:value="menu-buttons-selected" />
+      									</styleClass>
+      									<contextMenu>
+      										<ContextMenu>
+      											<items>
+      												<MenuItem mnemonicParsing="false" text="Unspecified Action" />
+      											</items>
+      										</ContextMenu>
+      									</contextMenu>
+      								</Button>
+      								<Button fx:id="inventoryBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#inventoryAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     INVENTORY">
+      									<graphic>
+      										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+      											<image>
+      												<Image url="@../images/inventory.png" />
+      											</image>
+      										</ImageView>
+      									</graphic>
+      								</Button>
+      								<Button fx:id="accountingBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#accountingAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="ACCOUNTING">
+      									<graphic>
+      										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+      											<image>
+      												<Image url="@../images/accounting.png" />
+      											</image>
+      										</ImageView>
+      									</graphic>
+      								</Button>
+      								<Button fx:id="billingBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#billingAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     BILLING">
+      									<graphic>
+      										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+      											<image>
+      												<Image url="@../images/billing.png" />
+      											</image>
+      										</ImageView>
+      									</graphic>
+      								</Button>
+      								<Button fx:id="memberBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#staffAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     MEMBER">
+      									<graphic>
+      										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+      											<image>
+      												<Image url="@../images/member.png" />
+      											</image>
+      										</ImageView>
+      									</graphic>
+      								</Button>
+      								<!--  <Button fx:id="smmBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#communicationAction" prefHeight="54.0" prefWidth="218.0" text="SMM">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                       <Image url="@../images/smm.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>  -->
+      							</children>
+      						</VBox>
+					</children>
+				</VBox>
+			</children>
+		</StackPane>
+      <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+	</children>
 </VBox>

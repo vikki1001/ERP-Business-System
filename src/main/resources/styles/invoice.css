@@ -1,14 +1,23 @@
 
 .vBox-background {
-    -fx-background-color: rgba(102,102,255, 1);
+    -fx-background-color: #666666;
+    
 }
+
+.combo-box, .list-cell, .combo-box .button {
+    -fx-alignment: center;	
+	-fx-font-size: 16px;
+	-fx-padding: 0 0 0 20px;
+}
+
 
 .close-button {
     -fx-background-image: url("../images/close.png");
-    -fx-background-color: rgba(102,102,255, 1);
+    -fx-background-color: #666666;   
     -fx-background-repeat: no-repeat;
     -fx-background-size: 75%;
     -fx-background-position: center center;
+    -fx-cursor: hand;
 }
 
 .close-button:hover {
@@ -16,10 +25,11 @@
 }
 
 .text-field {
-    -fx-font-size: 28;
+    -fx-font-size: 20;
 }
 
 .buttons {
-
+   -fx-cursor: hand;
     -fx-font-size: 20;
 }
+
