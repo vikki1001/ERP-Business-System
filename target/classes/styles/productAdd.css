@@ -1,11 +1,11 @@
 
 .header{
-    -fx-background-color: #ff3333;
+    -fx-background-color: #fff;
 }
 
 .header-label{
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 40px;
+    -fx-text-fill: #666;
+    -fx-font-size: 25px;
 }
 
 *{

@@ -1,25 +1,53 @@
-
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*/
 .top-bar, .header, .bottom-bar {
-    -fx-background-color: #16A086;
+    -fx-background-color: #666;
+    -fx-height:50;
+     
 }
 
 .header-label{
     -fx-text-fill: #ffffff;
-    -fx-font-size: 50;
+    -fx-font-size: 16;
+    -fx-font-family: Poppins;
+    -fx-font-weight:900
+   
+}
+.select-erp{
+	-fx-font-family: Poppins;
+	-fx-background-color:#e6e6e6;
+	
 }
 
 .close-button {
     -fx-background-image: url("../images/close.png");
-    -fx-background-color: #16A086;
+    -fx-background-color: #666;
     -fx-background-repeat: no-repeat;
     -fx-background-size: 75%;
     -fx-background-position: center center;
+    -fx-cursor: hand;
 }
 
 .close-button:hover {
     -fx-background-color: rgba(255, 255, 247, .3);
 }
+.label-one{
+	 -fx-font-family: Poppins;
+}
+.add-edit{
+	  -fx-cursor: hand;
+	  -fx-background-color: #62d0cb;
+	  -fx-text-fill: #fff;
+	   -fx-font-family: Poppins;
+	  
+}
+
 
 .vbox-body {
-    -fx-background-color: #1BBC9B;
+    -fx-background-color: #fff;
+      -fx-border-color: #666;
+    -fx-border-width: 5 ; 
+    -fx-border-style: solid(10, 15, 15, 15);
+     -fx-font-family: Poppins;
+      -fx-font-size: 14px;
 }

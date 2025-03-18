@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Properties>
+		<Property name="baseDir">/logs</Property>
+	</Properties>
+
+	<Appenders>
+		<!-- Console Appender -->
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout
+				pattern="%d{yyyy-MMM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+		<!-- Rolling File Appender -->
+		<RollingFile name="File">
+			<FileName>${baseDir}/services.log</FileName>
+			<FilePattern>${baseDir}/services%d{yyyy-MM-dd-hh-mm-ss}{Asia/Kolkata}.log.zip
+			</FilePattern>
+
+			<PatternLayout
+				pattern="%d{yyyy-MMM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<Policies>
+				<!-- RollOver on startup, daily and when the file reaches 500 MB -->
+				<SizeBasedTriggeringPolicy size="500 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="3">
+				<Delete basePath="${baseDir}" maxDepth="3">
+					<IfFileName glob="*/services*.log.zip" />
+					<IfLastModified age="P90D" />
+				</Delete>
+			</DefaultRolloverStrategy>
+			<!-- <Actions> <GzCompressAction/> </Actions> -->
+		</RollingFile>
+	</Appenders>
+	
+	<Loggers>
+		<Root level="error">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="File" />
+		</Root>
+	</Loggers>
+</Configuration>

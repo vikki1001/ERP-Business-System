@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="@../styles/admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="760.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #ddd;" styleClass="hbox-top-background">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="170.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;">
+               <children>
+                  <ImageView fitHeight="52.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="1056.0" spacing="5.0" styleClass="control-background" HBox.hgrow="ALWAYS">
+               <children>
+                  <Pane maxHeight="-Infinity" prefHeight="64.0" prefWidth="653.0" style="-fx-background-color: #fff;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="menu" layoutX="11.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="hamburger-button" />
+                        <ComboBox fx:id="CustomerBox" editable="true" layoutX="60.0" layoutY="18.0" prefHeight="30.0" prefWidth="139.0" promptText="Customer" styleClass="select-erp" />
+                        <ComboBox fx:id="AddressBox" layoutX="214.0" layoutY="18.0" prefHeight="30.0" prefWidth="139.0" promptText="Address" styleClass="select-erp" />
+                        <CheckBox fx:id="invoiceBox" layoutX="386.0" layoutY="26.0" mnemonicParsing="false" text="Invoice">
+                           <font>
+                              <Font name="Poppins Regular" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="QuotationBox" layoutX="463.0" layoutY="26.0" mnemonicParsing="false" text="Quotation">
+                           <font>
+                              <Font name="Poppins Regular" size="12.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="65.0" prefWidth="422.0" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <Button fx:id="CustomerBtn" layoutX="193.0" layoutY="18.0" mnemonicParsing="false" onAction="#addCustomerAction" prefHeight="30.0" style="-fx-background-color: #666666;" styleClass="add-button" text="Add Customer" textFill="WHITE">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="logoutBtn" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="314.0" layoutY="18.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #62d0cb;" styleClass="logout-button" text="LOGOUT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="returnProductBtn" layoutX="31.0" layoutY="18.0" mnemonicParsing="false" onAction="#returnProductAction" prefHeight="29.0" prefWidth="153.0" style="-fx-background-color: #666666;" styleClass="add-button" text="Return Product" textFill="WHITE">
+                       
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+		<StackPane alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0" VBox.vgrow="ALWAYS">
+			<children>
+				<HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0">
+					<children>
+						<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="760.0" styleClass="vbox-panel" HBox.hgrow="ALWAYS">
+							<children>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="740.0" style="-fx-background-color: #fff;" styleClass="hbox-header">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="850.0">
+                                 <children>
+                                    <Label fx:id="menulbl" text="ERP Inventory &gt; INVENTORY ">
+                                       <font>
+                                          <Font name="Poppins Regular" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="850.0">
+                                 <children>
+                                    <Label fx:id="entityLabel" alignment="CENTER" contentDisplay="TOP" prefHeight="22.0" prefWidth="569.0" text="ENTITY NAME">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="850.0">
+                                 <children>
+                                    <Label fx:id="dateLabel" alignment="CENTER" prefHeight="20.0" prefWidth="78.0" text="11/30/2023,">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Poppins Regular" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="timeLabel" alignment="CENTER" prefHeight="20.0" prefWidth="66.0" text="10 : 45 :12">
+                                       <font>
+                                          <Font name="Poppins Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="TOP_RIGHT" prefHeight="979.0" prefWidth="1920.0" style="-fx-background-color: #fff;">
+                           <children>
+                              <VBox minWidth="-Infinity" prefHeight="624.0" prefWidth="226.0">
+                                 <children>
+                                    <VBox prefHeight="944.0" prefWidth="284.0">
+                                       <children>
+                                          <TextField fx:id="searchField" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="226.0" promptText="Search" style="-fx-background-color: #fff; -fx-background-position: 195px; -fx-border-color: #666;" styleClass="search-field">
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </TextField>
+                                          <TableView fx:id="productTableView" prefHeight="879.0" prefWidth="284.0" styleClass="table">
+                                             <columns>
+                                                <TableColumn fx:id="productColumn" editable="false" prefWidth="75.0" text="Products" />
+                                             </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets top="20.0" />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" top="20.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="664.0" prefWidth="1620.0">
+                                 <children>
+                                    <TableView fx:id="listTableView" prefHeight="930.0" prefWidth="1000.0" styleClass="table">
+                                       <columns>
+                                          <TableColumn fx:id="itemColumn" prefWidth="125.0" text="Item" />
+                                          <TableColumn fx:id="priceColumn" prefWidth="75.0" text="Cost" />
+                                          <TableColumn fx:id="QuantitylblT" prefWidth="75.0" text="Quantity">
+                                             <columns>
+                                                <TableColumn fx:id="QuantityColumn" prefWidth="75.0" text="Qtz" />
+                                                <TableColumn fx:id="unitColumn" prefWidth="75.0" text="Unit" />
+                                             </columns>
+                                          </TableColumn>
+                                          <TableColumn fx:id="totalColumn" prefWidth="75.0" text="Total" />
+                                          <TableColumn fx:id="discountColumn" prefWidth="75.0" text="Discount(%)" />
+                                          <TableColumn fx:id="discountAmtColumn" prefWidth="75.0" text="Discount" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </TableView>
+                                    <HBox alignment="TOP_RIGHT" prefHeight="243.0" prefWidth="1600.0">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="233.0" prefWidth="1622.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="40.0" prefWidth="299.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" prefHeight="40.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="datelbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="87.0" styleClass="label-one" text="DATE">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <DatePicker fx:id="dateBox" minHeight="-Infinity" prefHeight="30.0" prefWidth="754.0" />
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" minHeight="-Infinity" prefHeight="40.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="invoicelbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="104.0" styleClass="label-one" text="INVOICE NO">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="invoiceField" minHeight="-Infinity" prefHeight="30.0" prefWidth="686.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="productlbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="87.0" styleClass="label-one" text="PRODUCT">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="productField" editable="false" minHeight="-Infinity" prefHeight="30.0" prefWidth="740.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="pricelbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="87.0" styleClass="label-one" text="PRICE">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="priceField" editable="false" minHeight="-Infinity" prefHeight="30.0" prefWidth="740.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="discountlbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="116.0" styleClass="label-one" text="DISCOUNT(%)">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="discountField" disable="true" minHeight="-Infinity" prefHeight="30.0" prefWidth="671.0">
+                                                               <HBox.margin>
+                                                                  <Insets left="8.0" />
+                                                               </HBox.margin>
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="qualitylbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="120.0" styleClass="label-one" text="QUANTITY">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="quantityField" disable="true" minHeight="-Infinity" prefHeight="30.0" prefWidth="476.0">
+                                                               <HBox.margin>
+                                                                  <Insets left="8.0" />
+                                                               </HBox.margin>
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                            <Label fx:id="stocklbl" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="74.0" styleClass="label-one" text="STOCK :">
+                                                               <HBox.margin>
+                                                                  <Insets />
+                                                               </HBox.margin>
+                                                               <padding>
+                                                                  <Insets left="8.0" />
+                                                               </padding>
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="quantityLabel" minWidth="-Infinity" prefHeight="24.0" prefWidth="70.0">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="80.0" prefWidth="200.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="desclbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="113.0" styleClass="label-one" text="DESCRIPTION">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextArea fx:id="descriptionArea" editable="false" maxHeight="126.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="675.0" />
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="810.0">
+                                                         <children>
+                                                            <Label fx:id="subTotallbl" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="87.0" styleClass="label-one" text="Sub Total">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="subTotalField" alignment="CENTER_RIGHT" editable="false" minHeight="-Infinity" prefHeight="30.0" prefWidth="706.0" text="0.00">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1620.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="540.0">
+                                                         <children>
+                                                            <Label fx:id="cgstlbl" minWidth="-Infinity" prefHeight="27.0" prefWidth="89.0" styleClass="label-one" text="CGST(%)">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="cgstF" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="70.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                            <TextField fx:id="cgstField" alignment="CENTER_RIGHT" editable="false" minHeight="-Infinity" prefHeight="30.0" prefWidth="374.0" text="0.00">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="540.0">
+                                                         <children>
+                                                            <Label fx:id="sgstlbl" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="87.0" styleClass="label-one" text="SGST(%)">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="sgstF" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="71.0">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                            <TextField fx:id="vatField" alignment="CENTER_RIGHT" editable="false" minHeight="-Infinity" prefHeight="30.0" prefWidth="374.0" text="0.00">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                         <HBox.margin>
+                                                            <Insets left="20.0" right="10.0" />
+                                                         </HBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="540.0">
+                                                         <children>
+                                                            <Label fx:id="netpayablelbl" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="118.0" styleClass="label-one" text="NET PAYABLE">
+                                                               <font>
+                                                                  <Font size="16.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <TextField fx:id="netPayableField" alignment="CENTER_RIGHT" editable="false" minHeight="-Infinity" prefHeight="30.0" prefWidth="404.0" text="0.00">
+                                                               <font>
+                                                                  <Font name="System Bold" size="16.0" />
+                                                               </font>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" minHeight="-Infinity" prefHeight="50.0" prefWidth="299.0">
+                                                   <children>
+                                                      <Button fx:id="addButton" minHeight="-Infinity" mnemonicParsing="false" onAction="#addAction" prefHeight="40.0" prefWidth="240.0" styleClass="add-edit" text="ADD" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Poppins Bold" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="editButton" minHeight="-Infinity" mnemonicParsing="false" onAction="#editAction" prefHeight="40.0" prefWidth="240.0" styleClass="add-edit" text="EDIT" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Poppins Bold" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" right="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="removeButton" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" onAction="#removeAction" prefHeight="40.0" prefWidth="240.0" styleClass="add-edit" text="DROP" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Poppins Bold" size="12.0" />
+                                                         </font>
+                                                      </Button>
+                                                      <Button fx:id="resetButton" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" onAction="#resetAction" prefHeight="40.0" prefWidth="240.0" styleClass="add-edit" text="RESET" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Poppins Bold" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="previewBtn" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" onAction="#previewAction" prefHeight="40.0" prefWidth="240.0" styleClass="add-edit" text="PREVIEW" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Poppins Bold" size="12.0" />
+                                                         </font>
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="gstBtn" alignment="CENTER" disable="true" minHeight="-Infinity" mnemonicParsing="false" onAction="#gstAction" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #28a745;" styleClass="add-edit" text="WITH" textFill="#28a745">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="nonGstBtn" alignment="CENTER" disable="true" minHeight="-Infinity" mnemonicParsing="false" onAction="#nonGstAction" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #007bff;" styleClass="add-edit" text="WITHOUT" textFill="#007bff">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                      <Button fx:id="saveBtn" alignment="CENTER" disable="true" minHeight="-Infinity" mnemonicParsing="false" onAction="#saveBtnAction" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #FFC107;" styleClass="add-edit" text="SAVE" textFill="#ffc107">
+                                                         <HBox.margin>
+                                                            <Insets left="10.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </HBox.margin></VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></HBox>
+                        <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="740.0" spacing="10.0" style="-fx-background-color: #f2f2f2;">
+                           <children>
+                              <Label>
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <graphic>
+                                    <Hyperlink fx:id="hyper" onAction="#hyperAction" text="KSVSoftTech">
+                                       <graphic>
+                                          <Label text="All Rights Reserved. © 2023 Design &amp; Developed By" />
+                                       </graphic>
+                                    </Hyperlink>
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </HBox>
+							</children>
+						</VBox>
+					</children>
+				</HBox>
+				<VBox fx:id="drawer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="220.0" styleClass="sidebar-menu" translateX="-220.0">
+					<children>
+						<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="139.0" prefWidth="200.0" styleClass="pane-user">
+							<children>
+								<ImageView fitHeight="60.0" fitWidth="60.0" layoutX="70.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" styleClass="pane-user-pic">
+									<image>
+										<Image url="@../images/user.png" />
+									</image>
+								</ImageView>
+								<Label fx:id="userLabel" layoutX="77.0" layoutY="84.0" styleClass="pane-user-text" text="ADMIN" />
+							</children>
+							<VBox.margin>
+								<Insets />
+							</VBox.margin>
+						</Pane>
+						<VBox prefHeight="200.0" prefWidth="218.0">
+							<children>
+								<Button fx:id="adminBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#adminAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     ADMINISTRATOR">
+									<graphic>
+										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../images/admin.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</Button>
+								<Button fx:id="inventoryBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#inventoryAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     INVENTORY">
+									
+									<graphic>
+										<ImageView fitHeight="38.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../images/inventory.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</Button>
+								<Button fx:id="accountingBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#accountingAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="ACCOUNTING">
+									<graphic>
+										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../images/accounting.png" />
+											</image>
+										</ImageView>
+									</graphic>
+								</Button>
+								<Button fx:id="billingBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="54.0" prefWidth="218.0" text="     BILLING">
+									<styleClass>
+										<String fx:value="menu-buttons" />
+										<String fx:value="menu-buttons-selected" />
+									</styleClass>
+									<graphic>
+										<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+											<image>
+												<Image url="@../images/billing.png" />
+											</image>
+										</ImageView>
+									</graphic>
+									
+								</Button>
+                        <Button fx:id="memberBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#staffAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     MEMBER">
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/member.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+							</children>
+						</VBox>
+					</children>
+				</VBox>
+			</children>
+		</StackPane>
+	</children>
+</VBox>

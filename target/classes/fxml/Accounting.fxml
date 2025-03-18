@@ -1,0 +1,1390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<!-- IdField -->
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="body" stylesheets="@../styles/admin.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="760.0" style="-fx-border-width: 1px 0px 0px 0px; -fx-border-color: #ddd;" styleClass="hbox-top-background">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="170.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;">
+               <children>
+                  <ImageView fitHeight="52.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/logo.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="65.0" prefWidth="1056.0" spacing="5.0" styleClass="control-background" HBox.hgrow="ALWAYS">
+               <children>
+                  <Pane maxHeight="-Infinity" prefHeight="65.0" prefWidth="100.0" style="-fx-background-color: #fff;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="menu" layoutX="11.0" layoutY="18.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="hamburger-button" />
+                        <HBox layoutX="61.0" layoutY="18.0" prefHeight="32.0" prefWidth="154.0">
+                           <children>
+                              <ComboBox fx:id="yearBox" prefHeight="30.0" prefWidth="139.0" promptText="SELECT" styleClass="select-erp" />
+                           </children>
+                        </HBox>
+                        <ComboBox fx:id="gstBox" layoutX="215.0" layoutY="17.0" prefHeight="30.0" prefWidth="150.0" promptText="SELECT" styleClass="select-erp" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="65.0" prefWidth="422.0" HBox.hgrow="NEVER">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <Button fx:id="logoutBtn" alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="314.0" layoutY="18.0" mnemonicParsing="false" onAction="#logoutAction" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #62d0cb;" styleClass="logout-button" text="LOGOUT" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+		<StackPane alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0" VBox.vgrow="ALWAYS">
+			<children>
+            <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="760.0">
+               <children>
+                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="760.0" style="-fx-background-color: #fff;" styleClass="vbox-panel" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="29.0" prefWidth="740.0" style="-fx-background-color: #fff;" styleClass="hbox-header">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="808.0">
+                                 <children>
+                                    <Label fx:id="menulbl" text="ERP Inventory ">
+                                       <font>
+                                          <Font name="Poppins Regular" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="20.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="425.0">
+                                 <children>
+                                    <Label fx:id="entityLabel" alignment="CENTER" contentDisplay="TOP" prefHeight="22.0" prefWidth="569.0" text="ENTITY NAME">
+                                       <font>
+                                          <Font size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="805.0">
+                                 <children>
+                                    <Label fx:id="dateLabel" alignment="CENTER" prefHeight="20.0" prefWidth="78.0" text="11/30/2023,">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Poppins Regular" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="timeLabel" alignment="CENTER" prefHeight="20.0" prefWidth="66.0" text="10 : 45 :12">
+                                       <font>
+                                          <Font name="Poppins Bold" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="20.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="62.0" prefWidth="740.0" style="-fx-background-color: #fff;" styleClass="hbox-header">
+                           <children>
+                              <Button fx:id="accountingTab" mnemonicParsing="false" prefHeight="32.0" prefWidth="134.0" style="-fx-background-color: #fff; -fx-border-color: #3AADAF;" styleClass="button-tab-one-active" text="Accounting" textFill="#3aadaf">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="balanceSheetBtn" mnemonicParsing="false" onAction="#BalanceSheetAction" prefHeight="32.0" prefWidth="134.0" style="-fx-background-color: #fff; -fx-border-color: #3e4343;" styleClass="button-tab-one" text="Balance Sheet" textFill="#6c7575">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="expenseBtn" mnemonicParsing="false" onAction="#expenseAction" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #fff; -fx-border-color: #3e4343;" styleClass="button-tab-one" text="Expense" textFill="#6c7575">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="analysisBtn" mnemonicParsing="false" onAction="#ratioAction" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #fff; -fx-border-color: #3e4343;" styleClass="button-tab-one" text="Analysis" textFill="#6c7575">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="payableBtn" mnemonicParsing="false" onAction="#payableAction" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #fff; -fx-border-color: #3e4343;" styleClass="button-tab-one" text="Payable" textFill="#6c7575">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="receviableBtn" mnemonicParsing="false" onAction="#receivableAction" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #fff; -fx-border-color: #3e4343;" styleClass="button-tab-one" text="Receiveble" textFill="#6c7575">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="statementBtn" mnemonicParsing="false" onAction="#statementAction" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #fff; -fx-border-color: #3e4343;" styleClass="button-tab-one" text="Statement" textFill="#6c7575">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.5" prefWidth="1280.0" style="-fx-background-color: #E6E6E6;" styleClass="hbox-header" />
+                        <HBox alignment="CENTER" prefHeight="907.0" prefWidth="1920.0">
+                           <children>
+                              <VBox alignment="CENTER" prefWidth="480.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="APR" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="228.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="aprilDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#aprilDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="aprilDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children></VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="aprilCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#aprilCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl1" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="aprilCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children></VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl4" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="AUG" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="258.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr4" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="augustDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#augustDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl8" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="augustDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr4" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="augustCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#augustCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl9" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="augustCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl8" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="DEC" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="244.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr8" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="decemberDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#decemberDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl16" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="decemberDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr8" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="decemberCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#decemberCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl17" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="decemberCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="30.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" prefWidth="480.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl1" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="MAY" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="272.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr1" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="mayDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#mayDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl2" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="mayDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr1" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="mayCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#mayCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl3" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="mayCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl5" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="SEP" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="240.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr5" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="septemberDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#septemberDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl10" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="septemberDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr5" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="septemberCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#septemberCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl11" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="septemberCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl9" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="JAN" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="236.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr9" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="januaryDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#januaryDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl18" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="januaryDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr9" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="januaryCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#januaryCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl19" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="januaryCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="30.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" prefWidth="480.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl2" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="JUN" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="234.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr2" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="juneDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#juneDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl4" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="junDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr2" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="juneCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#juneCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl5" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="juneCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl6" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="OCT" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="260.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr6" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="octoberDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#octoberDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl12" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="octoberDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr6" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="octoberCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#octoberCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl13" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="octoberCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl10" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="FEB" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="240.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr10" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="februaryDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#februaryDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl20" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="februaryDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr10" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="februaryCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#februaryCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl21" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="februaryCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="30.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" prefWidth="480.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl3" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="JUL" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="224.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr3" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="julyDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#julyDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl6" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="julyDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr3" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="julyCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#julyCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl7" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="julyCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl7" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="NOV" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="240.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr7" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="novemberDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#novemberDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl14" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="novemberDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr7" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="novemberCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#novemberCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl15" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="novemberCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="323.0" style="-fx-border-color: #ddd;">
+                                       <children>
+                                          <VBox prefHeight="108.0" prefWidth="321.0">
+                                             <children>
+                                                <HBox alignment="CENTER" prefHeight="16.0" prefWidth="321.0">
+                                                   <children>
+                                                      <Pane prefHeight="10.0" prefWidth="106.0">
+                                                         <children>
+                                                            <Circle fill="#62d0cb" layoutX="52.0" layoutY="1.0" radius="24.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="6.0">
+                                                               <effect>
+                                                                  <DropShadow height="8.88" offsetY="2.0" radius="4.220000000000001" spread="0.13" width="10.0">
+                                                                     <color>
+                                                                        <Color red="0.8799999952316284" green="0.8799999952316284" blue="0.8799999952316284" />
+                                                                     </color>
+                                                                  </DropShadow>
+                                                               </effect>
+                                                            </Circle>
+                                                            <Label fx:id="monthlbl11" alignment="CENTER" layoutX="29.0" layoutY="-9.0" prefHeight="20.0" prefWidth="47.0" text="MAR" textAlignment="CENTER" textFill="WHITE">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </Pane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox alignment="CENTER" prefHeight="261.0" prefWidth="321.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="totalDr11" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total DR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="marchDr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#marchDrAction" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl22" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="marchDrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" style="-fx-border-width: 0px 1px 0px 0px; -fx-border-color: #ddd;" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox alignment="CENTER" prefHeight="113.0" prefWidth="309.0">
+                                                         <children>
+                                                            <Label fx:id="TotalCr11" alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="300.0" text="Total CR" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Hyperlink fx:id="marchCr" alignment="TOP_CENTER" contentDisplay="TOP" onAction="#marchCrAction" prefHeight="20.0" prefWidth="300.0" text="0.00" textAlignment="CENTER" textFill="#616161" textOverrun="CLIP" wrapText="true">
+                                                                <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="10.0" />
+                                                               </VBox.margin>
+                                                            </Hyperlink>
+                                                            <Label fx:id="ClosingBalLbl23" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="Closing Balance" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Regular" size="12.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Label fx:id="marchCrBal" alignment="CENTER" contentDisplay="CENTER" prefHeight="20.0" prefWidth="300.0" text="0.00" textFill="#616161">
+                                                               <font>
+                                                                  <Font name="Poppins Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="30.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="740.0" spacing="10.0" style="-fx-background-color: #f2f2f2;">
+                           <children>
+                              <Label>
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <graphic>
+                                    <Hyperlink fx:id="hyper" onAction="#hyperAction" text="KSVSoftTech">
+                                       <graphic>
+                                          <Label text="All Rights Reserved. © 2023 Design &amp; Developed By" />
+                                       </graphic>
+                                    </Hyperlink>
+                                 </graphic>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+				<VBox fx:id="drawer" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="220.0" styleClass="sidebar-menu" translateX="-220.0">
+					<children>
+						<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="139.0" prefWidth="220.0" styleClass="pane-user">
+							<children>
+								<ImageView fitHeight="60.0" fitWidth="60.0" layoutX="83.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" styleClass="pane-user-pic">
+									<image>
+										<Image url="@../images/user.png" />
+									</image>
+								</ImageView>
+								<Label fx:id="userLabel" layoutX="89.0" layoutY="86.0" styleClass="pane-user-text" text="ADMIN" />
+							</children>
+							<VBox.margin>
+								<Insets />
+							</VBox.margin>
+						</Pane>
+								<VBox prefHeight="200.0" prefWidth="218.0">
+									<children>
+										<Button fx:id="adminBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#adminAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     ADMINISTRATOR">
+											<graphic>
+												<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+													<image>
+														<Image url="@../images/admin.png" />
+													</image>
+												</ImageView>
+											</graphic>
+										</Button>
+										
+										<Button fx:id="inventoryBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#productAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     INVENTORY">
+											<graphic>
+												<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+													<image>
+														<Image url="@../images/inventory.png" />
+													</image>
+												</ImageView>
+											</graphic>
+										</Button> 
+										<Button fx:id="accountingBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="54.0" prefWidth="218.0" text="     ACCOUNTING">
+											<graphic>
+												<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+													<image>
+														<Image url="@../images/accounting.png" />
+													</image>
+												</ImageView>
+											</graphic>
+											<styleClass>
+												<String fx:value="menu-buttons" />
+												<String fx:value="menu-buttons-selected" />
+											</styleClass>
+										</Button>
+										
+										<Button fx:id="billingBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#posAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     BILLING">
+											<graphic>
+												<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+													<image>
+														<Image url="@../images/billing.png" />
+													</image>
+												</ImageView>
+											</graphic>
+										</Button>
+								<Button fx:id="memberBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#staffAction" prefHeight="54.0" prefWidth="218.0" styleClass="menu-buttons" text="     MEMBER">
+											<graphic>
+												<ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+													<image>
+														<Image url="@../images/member.png" />
+													</image>
+												</ImageView>
+											</graphic>
+										</Button>
+									</children>
+								</VBox>
+					</children>
+				</VBox>
+			
+			</children>
+		</StackPane>
+	</children>
+</VBox>

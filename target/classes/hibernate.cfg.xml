@@ -1,20 +1,50 @@
 <!DOCTYPE hibernate-configuration PUBLIC
-"-//Hibernate/Hibernate Configuration DTD//EN"
-"http://www.hibernate.org/dtd/hibernate-configuration.dtd">
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/inventory</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="hibernate.current_session_context_class">thread</property>
-        <mapping class="com.ksv.inventory.entity.Category"/>
-        <mapping class="com.ksv.inventory.entity.Employee"/>
-        <mapping class="com.ksv.inventory.entity.Invoice"/>
-        <mapping class="com.ksv.inventory.entity.Product"/>
-        <mapping class="com.ksv.inventory.entity.Purchase"/>
-        <mapping class="com.ksv.inventory.entity.Sale"/>
-        <mapping class="com.ksv.inventory.entity.Supplier"/>
-    </session-factory>
-</hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/commericalerp</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		
+		<mapping class="com.ksv.inventory.entity.Invoice" />
+		<mapping class="com.ksv.inventory.entity.Credit" />
+		<mapping class="com.ksv.inventory.entity.Product" />
+		<mapping class="com.ksv.inventory.entity.Purchase" />
+		<mapping class="com.ksv.inventory.entity.Category" />
+		<mapping class="com.ksv.inventory.entity.Sale" />
+		<mapping class="com.ksv.inventory.entity.SuperAdmin" />
+		<mapping class="com.ksv.inventory.entity.Employee" />
+		<mapping class="com.ksv.inventory.entity.Customer" />
+		<mapping class="com.ksv.inventory.entity.TanentMST" />
+		<mapping class="com.ksv.inventory.entity.Supplier" />
+		<mapping class="com.ksv.inventory.entity.Expense" />
+		<mapping class="com.ksv.inventory.entity.Staff" />
+		<mapping class="com.ksv.inventory.entity.BalanceSheet" />
+		<mapping class="com.ksv.inventory.entity.Quotation" />
+
+		<mapping class="com.ksv.inventory.entity.CustomerDue" />
+		<mapping class="com.ksv.inventory.entity.SupplierDue" />
+		<mapping class="com.ksv.inventory.entity.BankStatement" />
+		<mapping class="com.ksv.inventory.entity.ReturnProduct" />
+		<mapping class="com.ksv.inventory.entity.QuotationProduct" />
+		<mapping class="com.ksv.inventory.entity.ReturnSupplierProduct" />
+		<mapping class="com.ksv.inventory.entity.CustomerFollowup" />
+
+		<mapping class="com.ksv.inventory.entity.Company" />
+		<mapping class="com.ksv.inventory.entity.CompanyTalent" />
+
+		<mapping class="com.ksv.inventory.entity.SmsSchedular" />
+		<mapping class="com.ksv.inventory.entity.SmsTrigger" />
+		<mapping class="com.ksv.inventory.entity.WhatsappTrigger" />
+		<mapping class="com.ksv.inventory.entity.EmailTrigger" />
+		<mapping class="com.ksv.inventory.entity.EmailSchedular" />
+		<mapping class="com.ksv.inventory.entity.WhatsappSchedular" />
+		<mapping class="com.ksv.inventory.entity.EmailConfigDetails" />
+		
+	</session-factory>
+</hibernate-configuration> 
