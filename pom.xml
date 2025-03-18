@@ -263,7 +263,14 @@
 		<dependency>
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
-			<version>3.8.0</version> <!-- Use the latest version available -->
+    		<version>3.9.0</version>  <!-- Upgrade to latest version -->
 		</dependency>
+		
+		<dependency>
+		    <groupId>com.mysql</groupId>
+		    <artifactId>mysql-connector-j</artifactId>
+		    <version>8.2.0</version>  <!-- Upgrade to latest version -->
+		</dependency>
+
 	</dependencies>
 </project>
